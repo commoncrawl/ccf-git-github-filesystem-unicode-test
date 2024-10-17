@@ -26,3 +26,16 @@ yourself out.
 The one symptom know we're looking for is git sometimes mangling the
 filenames. But that's just Linux; Windows and MacOS may well have some
 additional symptoms.
+
+## MacOS
+
+after git checkout:
+
+```
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        "NFD,NFKD-daats\312\274\303\255in"
+        "NFD,NFKD-d\305\251ya"
+```
+
+Did not have python easily available
