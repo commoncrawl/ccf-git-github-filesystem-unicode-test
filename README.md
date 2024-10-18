@@ -3,29 +3,36 @@
 Is your life not dangerous enough? Try this on for size.
 
 ```
-./generate.py
+python ./generate.py
 
-string greg appears to have been in form NFC
-string greg appears to have been in form NFKC
-string greg appears to have been in form NFD
-string greg appears to have been in form NFKD
-string greg has equivalent forms ['NFC', 'NFKC', 'NFD', 'NFKD']
-string daatsʼíin appears to have been in form NFC
-string daatsʼíin appears to have been in form NFKC
+doing string daatsʼíin:
+LATIN SMALL LETTER D, LATIN SMALL LETTER A, LATIN SMALL LETTER A, LATIN SMALL LETTER T, LATIN SMALL LETTER S, MODIFIER LETTER APOSTROPHE, LATIN SMALL LETTER I WITH ACUTE, LATIN SMALL LETTER I, LATIN SMALL LETTER N
+original string daatsʼíin appears to have already been in form NFC
+original string daatsʼíin appears to have already been in form NFKC
+in NFD: LATIN SMALL LETTER D, LATIN SMALL LETTER A, LATIN SMALL LETTER A, LATIN SMALL LETTER T, LATIN SMALL LETTER S, MODIFIER LETTER APOSTROPHE, LATIN SMALL LETTER I, COMBINING ACUTE ACCENT, LATIN SMALL LETTER I, LATIN SMALL LETTER N
+in NFKD: LATIN SMALL LETTER D, LATIN SMALL LETTER A, LATIN SMALL LETTER A, LATIN SMALL LETTER T, LATIN SMALL LETTER S, MODIFIER LETTER APOSTROPHE, LATIN SMALL LETTER I, COMBINING ACUTE ACCENT, LATIN SMALL LETTER I, LATIN SMALL LETTER N
 string daatsʼíin has equivalent forms ['NFC', 'NFKC']
 string daatsʼíin has equivalent forms ['NFD', 'NFKD']
-string dũya appears to have been in form NFC
-string dũya appears to have been in form NFKC
+path NFC,NFKC-daatsʼíin already exists, not creating
+path NFD,NFKD-daatsʼíin already exists, not creating
+
+doing string dũya:
+LATIN SMALL LETTER D, LATIN SMALL LETTER U WITH TILDE, LATIN SMALL LETTER Y, LATIN SMALL LETTER A
+original string dũya appears to have already been in form NFC
+original string dũya appears to have already been in form NFKC
+in NFD: LATIN SMALL LETTER D, LATIN SMALL LETTER U, COMBINING TILDE, LATIN SMALL LETTER Y, LATIN SMALL LETTER A
+in NFKD: LATIN SMALL LETTER D, LATIN SMALL LETTER U, COMBINING TILDE, LATIN SMALL LETTER Y, LATIN SMALL LETTER A
 string dũya has equivalent forms ['NFC', 'NFKC']
 string dũya has equivalent forms ['NFD', 'NFKD']
+path NFC,NFKC-dũya already exists, not creating
+path NFD,NFKD-dũya already exists, not creating
 ```
 
 Having these files, now try checking them in. Tar, untar, zip, unizp, knock
 yourself out.
 
-The one symptom know we're looking for is git sometimes mangling the
-filenames. But that's just Linux; Windows and MacOS may well have some
-additional symptoms.
+We're looking for different behavior in different situations. Linux is usually
+clean, however, sometimes it can have problems.
 
 ## MacOS
 
@@ -42,24 +49,30 @@ And then
 
 ```
 $ python3 generate.py
-string greg appears to have been in form NFC
-string greg appears to have been in form NFKC
-string greg appears to have been in form NFD
-string greg appears to have been in form NFKD
-string greg has equivalent forms ['NFC', 'NFKC', 'NFD', 'NFKD']
-string daatsʼíin appears to have been in form NFC
-string daatsʼíin appears to have been in form NFKC
+
+doing string daatsʼíin:
+LATIN SMALL LETTER D, LATIN SMALL LETTER A, LATIN SMALL LETTER A, LATIN SMALL LETTER T, LATIN SMALL LETTER S, MODIFIER LETTER APOSTROPHE, LATIN SMALL LETTER I WITH ACUTE, LATIN SMALL LETTER I, LATIN SMALL LETTER N
+original string daatsʼíin appears to have been in form NFC
+original string daatsʼíin appears to have been in form NFKC
+in NFD: LATIN SMALL LETTER D, LATIN SMALL LETTER A, LATIN SMALL LETTER A, LATIN SMALL LETTER T, LATIN SMALL LETTER S, MODIFIER LETTER APOSTROPHE, LATIN SMALL LETTER I, COMBINING ACUTE ACCENT, LATIN SMALL LETTER I, LATIN SMALL LETTER N
+in NFKD: LATIN SMALL LETTER D, LATIN SMALL LETTER A, LATIN SMALL LETTER A, LATIN SMALL LETTER T, LATIN SMALL LETTER S, MODIFIER LETTER APOSTROPHE, LATIN SMALL LETTER I, COMBINING ACUTE ACCENT, LATIN SMALL LETTER I, LATIN SMALL LETTER N
 string daatsʼíin has equivalent forms ['NFC', 'NFKC']
 string daatsʼíin has equivalent forms ['NFD', 'NFKD']
 path NFC,NFKC-daatsʼíin already exists, not creating
 path NFD,NFKD-daatsʼíin already exists, not creating
+
+doing string dũya:
+LATIN SMALL LETTER D, LATIN SMALL LETTER U WITH TILDE, LATIN SMALL LETTER Y, LATIN SMALL LETTER A
 string dũya appears to have been in form NFC
 string dũya appears to have been in form NFKC
+in NFD: LATIN SMALL LETTER D, LATIN SMALL LETTER U, COMBINING TILDE, LATIN SMALL LETTER Y, LATIN SMALL LETTER A
+in NFKD: LATIN SMALL LETTER D, LATIN SMALL LETTER U, COMBINING TILDE, LATIN SMALL LETTER Y, LATIN SMALL LETTER A
 string dũya has equivalent forms ['NFC', 'NFKC']
 string dũya has equivalent forms ['NFD', 'NFKD']
 path NFC,NFKC-dũya already exists, not creating
 path NFD,NFKD-dũya already exists, not creating
-Gregs-Mac-mini:ccf-git-github-filesystem-unicode-test lindahl$ git status
+
+$ git status
 On branch main
 Your branch is up to date with 'origin/main'.
 
